@@ -1,5 +1,6 @@
 class turn {
     private int currentTurn = 0;
+    private int currentPlayersTrophies = 0;
     private player players;
 
     public turn(player players) {
@@ -16,5 +17,13 @@ class turn {
 
     public String getCurrentPlayerName() {
         return this.players.getPlayerNames().get(this.currentTurn);
+    }
+
+    public int getCurrentPlayerTrophies() {
+        return this.currentPlayersTrophies;
+    }
+
+    public void setCurrentPlayerTrophies(int trophies) {
+        this.currentPlayersTrophies = trophies;
     }
 }

@@ -26,10 +26,16 @@ public class gameUI {
                     System.out.println("player that will go first is:" + turn.getCurrentPlayerName() + ". Enter 1 to roll the die!");
                     int input2 = scanner.nextInt();
                     if (input2 == 1) {
-                        //if ( !turn.getCurrentPlayerTrophies == 6) {} implement
+                        int currentPlayerTrophies = turn.getCurrentPlayerTrophies();
                         int diceroll = rand.nextInt(7) - 3;
-                        System.out.println("You rolled a " + diceroll + "! Added to your number of trophies."); // add to .getperson's trophies
+                        System.out.println("You rolled a " + diceroll + "! It's added to your number of trophies."); // add to .getperson's trophies
                         turn.nextTurn();
+                        turn.setCurrentPlayerTrophies(currentPlayerTrophies + diceroll);
+                        System.out.println("Your total trophies now: " + turn.getCurrentPlayerTrophies());
+                        if (turn.getCurrentPlayerTrophies() >= 6) {
+                            System.out.println(turn.getCurrentPlayerName() + " has won the game with 6 trophies!");
+                            break; // End the game
+                        }
                         System.out.println("player that will go next is:" + turn.getCurrentPlayerName() + ". Enter 1 to roll the die!");
                         input2 = scanner.nextInt();
                     }
