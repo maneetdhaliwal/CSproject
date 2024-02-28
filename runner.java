@@ -1,6 +1,6 @@
 public class runner {
     public static void main(String[] args) {
-        gameUI starter = new gameUI();
+        GameUI starter = new GameUI();
         starter.startGame();
     }
 

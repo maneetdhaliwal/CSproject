@@ -1,9 +1,8 @@
-class turn {
+class Turn {
     private int currentTurn = 0;
-    private int currentPlayersTrophies = 0;
-    private player players;
+    private Player players;
 
-    public turn(player players) {
+    public Turn(Player players) {
         this.players = players;
     }
 
@@ -20,10 +19,12 @@ class turn {
     }
 
     public int getCurrentPlayerTrophies() {
-        return this.currentPlayersTrophies;
+        String currentPlayerName = getCurrentPlayerName();
+        return players.getPlayerTrophies(currentPlayerName);
     }
 
     public void setCurrentPlayerTrophies(int trophies) {
-        this.currentPlayersTrophies = trophies;
+        String currentPlayerName = getCurrentPlayerName();
+        players.setPlayerTrophies(currentPlayerName, trophies);
     }
 }
